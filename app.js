@@ -51,9 +51,7 @@ function caesarCipher(string, factor) {
     '<', '>', '/', '\\', '|', 
     '~', '`', '"', "'", " "
   ];
-    
-
-
+  
   let result = "";
   
   for (let i = 0; i < string.length; i++) {
@@ -61,14 +59,16 @@ function caesarCipher(string, factor) {
       result += string[i];
     } else if (string[i] === string.charAt(i).toUpperCase()) {
       if (alphabetUpper.indexOf(string[i]) + factor >= alphabetUpper.length) {
-        let index = (alphabetUpper.indexOf(string[i]) + factor) - alphabetUpper.length;
+        let index =
+          alphabetUpper.indexOf(string[i]) + factor - alphabetUpper.length;
         result += alphabetUpper[index];
       } else {
         result += alphabetUpper[alphabetUpper.indexOf(string[i]) + factor];
       }
     } else {
       if (alphabetLower.indexOf(string[i]) + factor >= alphabetLower.length) {
-        let index = (alphabetLower.indexOf(string[i]) + factor) - alphabetLower.length;
+        let index =
+          alphabetLower.indexOf(string[i]) + factor - alphabetLower.length;
         result += alphabetLower[index];
       } else {
         result += alphabetLower[alphabetLower.indexOf(string[i]) + factor];
@@ -84,10 +84,10 @@ function analyzeArray(array) {
     average: null,
     min: array[0],
     max: array[0],
-    length: array.length
+    length: array.length,
   };
 
-  for (let i = 0; i <=array.length; i++) {
+  for (let i = 0; i <= array.length; i++) {
     if (result.average === null) {
       result.average = array.reduce((acc, value) => acc + value) / array.length;
     }
@@ -95,7 +95,7 @@ function analyzeArray(array) {
     if (result.min > array[i]) {
       result.min = array[i];
     }
-    
+
     if (result.max < array[i]) {
       result.max = array[i];
     }
@@ -104,10 +104,4 @@ function analyzeArray(array) {
   return result;
 }
 
-export {
-  capitalize,
-  reverseString,
-  caesarCipher,
-  analyzeArray,
-  Calculator
-}
+export { capitalize, reverseString, caesarCipher, analyzeArray, Calculator };
